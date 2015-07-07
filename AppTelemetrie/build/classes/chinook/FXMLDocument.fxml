@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="411.0" prefWidth="500.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="chinook.FXMLDocumentController">
+  <children>
+    <MenuBar layoutX="0.0" layoutY="0.0" prefHeight="26.0" prefWidth="500.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Open CSV File" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <Menu mnemonicParsing="false" text="Add Graph">
+              <items>
+                <CustomMenuItem mnemonicParsing="false" text="">
+                  <content>
+                    <Label text="Name">
+                      <graphic>
+                        <TextField fx:id="GraphNameTextField" prefWidth="200.0" />
+                      </graphic>
+                    </Label>
+                  </content>
+                </CustomMenuItem>
+                <CustomMenuItem mnemonicParsing="false" text="">
+                  <content>
+                    <SplitMenuButton fx:id="XGraphButton" mnemonicParsing="false" text="X">
+                      <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleXGraphItem" text="Pitch" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleXGraphItem" text="Thrust" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleXGraphItem" text="Torque" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleXGraphItem" text="DirVent" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleXGraphItem" text="VitVent" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleXGraphItem" text="DirRelativeMat" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleXGraphItem" text="RPMRoue" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleXGraphItem" text="RPMEolienne" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleXGraphItem" text="Gear" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleXGraphItem" text="Power" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleXGraphItem" text="Temps" />
+                      </items>
+                    </SplitMenuButton>
+                  </content>
+                </CustomMenuItem>
+                <CustomMenuItem mnemonicParsing="false" text="">
+                  <content>
+                    <SplitMenuButton fx:id="YGraphButton" layoutX="250.0" layoutY="150.0" mnemonicParsing="false" text="Y">
+                      <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleYGraphItem" text="Pitch" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleYGraphItem" text="Thrust" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleYGraphItem" text="Torque" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleYGraphItem" text="DirVent" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleYGraphItem" text="VitVent" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleYGraphItem" text="DirRelativeMat" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleYGraphItem" text="RPMRoue" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleYGraphItem" text="RPMEolienne" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleYGraphItem" text="Gear" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleYGraphItem" text="Power" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleYGraphItem" text="Temps" />
+                      </items>
+                    </SplitMenuButton>
+                  </content>
+                </CustomMenuItem>
+                <MenuItem mnemonicParsing="false" text="">
+                  <graphic>
+                    <Button mnemonicParsing="false" onAction="#handleAddGraphButton" text="Add Graph" />
+                  </graphic>
+                </MenuItem>
+              </items>
+            </Menu>
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Serial Communication">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Baud Rate">
+              <graphic>
+                <SplitMenuButton fx:id="BaudRateButton" contentDisplay="RIGHT" minWidth="-Infinity" mnemonicParsing="false" text="9600">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleBaudRate" text="1200" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleBaudRate" text="2400" fx:id="baud2400" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleBaudRate" text="4800" fx:id="baud4800" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleBaudRate" text="9600" fx:id="baud9600" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleBaudRate" text="19200" fx:id="baud19200" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleBaudRate" text="38400" fx:id="baud38400" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleBaudRate" text="57600" fx:id="baud57600" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleBaudRate" text="115200" fx:id="baud115200" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleBaudRate" text="230400" fx:id="baud230400" />
+                  </items>
+                </SplitMenuButton>
+              </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Stop Bits">
+              <graphic>
+                <SplitMenuButton fx:id="StopBitsButton" contentDisplay="RIGHT" minWidth="-Infinity" mnemonicParsing="false" text="1">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleStopBits" text="1" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleStopBits" text="1.5" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleStopBits" text="2" />
+                  </items>
+                </SplitMenuButton>
+              </graphic>
+            </MenuItem>
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <Button contentDisplay="LEFT" disable="false" layoutX="353.0" layoutY="33.0" minHeight="57.0" minWidth="134.0" mnemonicParsing="false" onAction="#startSerialComm" prefHeight="57.0" prefWidth="134.0" text="can i haz data plz" textAlignment="CENTER" wrapText="true">
+      <font>
+        <Font name="Comic Sans MS Bold" size="50.0" />
+      </font>
+    </Button>
+    <Button layoutX="343.0" layoutY="342.0" minHeight="50.0" mnemonicParsing="false" onAction="#stopSerialComm" prefHeight="55.0" prefWidth="144.0" text="stop dat" textAlignment="CENTER" wrapText="true">
+      <font>
+        <Font name="Comic Sans MS Bold" size="25.0" />
+      </font>
+    </Button>
+    <PieChart id="PieChart" fx:id="testPieChart" labelsVisible="false" layoutX="14.0" layoutY="33.0" legendVisible="false" mouseTransparent="false" prefHeight="192.0" prefWidth="231.0" />
+    <Label layoutX="95.0" layoutY="231.0" text="Gear:" />
+    <Label fx:id="lbGear" layoutX="130.0" layoutY="231.0" text="0" />
+  </children>
+</AnchorPane>
