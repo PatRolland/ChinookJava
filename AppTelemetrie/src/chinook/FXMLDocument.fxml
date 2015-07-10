@@ -112,7 +112,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <Button contentDisplay="LEFT" disable="false" layoutX="353.0" layoutY="33.0" minHeight="57.0" minWidth="134.0" mnemonicParsing="false" onAction="#startSerialComm" prefHeight="57.0" prefWidth="134.0" text="can i haz data plz" textAlignment="CENTER" wrapText="true">
+    <Button contentDisplay="LEFT" disable="false" layoutX="353.0" layoutY="33.0" minHeight="55.0" minWidth="134.0" mnemonicParsing="false" onAction="#startSerialComm" prefHeight="55.0" prefWidth="134.0" text="can i haz data plz" textAlignment="CENTER" wrapText="true">
       <font>
         <Font name="Comic Sans MS Bold" size="50.0" />
       </font>
@@ -122,8 +122,9 @@
         <Font name="Comic Sans MS Bold" size="25.0" />
       </font>
     </Button>
-    <PieChart id="PieChart" fx:id="testPieChart" labelsVisible="false" layoutX="14.0" layoutY="33.0" legendVisible="false" mouseTransparent="false" prefHeight="192.0" prefWidth="231.0" />
-    <Label layoutX="95.0" layoutY="231.0" text="Gear:" />
-    <Label fx:id="lbGear" layoutX="130.0" layoutY="231.0" text="0" />
+    <PieChart id="PieChart" fx:id="gearPieChart" labelsVisible="false" layoutX="14.0" layoutY="33.0" legendVisible="false" mouseTransparent="false" prefHeight="192.0" prefWidth="231.0" />
+    <Label layoutX="117.0" layoutY="225.0" text="Gear" />
+    <TextField editable="false" layoutX="97.0" layoutY="169.0" prefWidth="65.0" />
+    <Label fx:id="lbGear" layoutX="126.0" layoutY="172.0" text="2000" />
   </children>
 </AnchorPane>

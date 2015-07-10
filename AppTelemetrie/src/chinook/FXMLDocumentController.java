@@ -42,7 +42,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML SplitMenuButton YGraphButton;
     @FXML TextField GraphNameTextField;
     @FXML Button AddGraphButton;
-    @FXML PieChart testPieChart;
+    @FXML PieChart gearPieChart;
     @FXML Label lbGear;
     
     @FXML public void handleBaudRate(ActionEvent event){ BaudRateButton.setText( ((MenuItem)event.getSource()).getText() ); }
@@ -59,7 +59,7 @@ public class FXMLDocumentController implements Initializable {
     ArrayList<FXMLGraphController> Graphs;
     
     //Gauge datas
-    ObservableList<PieChart.Data> testPieChartData = FXCollections.observableArrayList();
+    ObservableList<PieChart.Data> gearPieChartData = FXCollections.observableArrayList();
     
     @FXML public void handleAddGraphButton(ActionEvent event)throws IOException {
         addGraph(GraphNameTextField.getText(), XGraphButton.getText(), YGraphButton.getText());
@@ -115,10 +115,10 @@ public class FXMLDocumentController implements Initializable {
                 c.setTempY(data);
         }
         
-        if(data.getType().compareTo("Gear") == 0)
+        if(data.getType().compareTo("Pitch") == 0)
         {
-            testPieChart.getData().get(1).setPieValue(data.getValue());
-            testPieChart.getData().get(2).setPieValue(14-data.getValue());
+            gearPieChart.getData().get(1).setPieValue(data.getValue()-1);
+            gearPieChart.getData().get(2).setPieValue(100-data.getValue());
             lbGear.setText(data.getValueString());
         }
     }    
@@ -135,19 +135,22 @@ public class FXMLDocumentController implements Initializable {
         try {            
             addGraph("Graph1", "Temps", "Temps");  
             addGraph("Graph2", "Temps", "Power");
+            
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        testPieChart.setData(testPieChartData);
-        testPieChartData.add(new PieChart.Data(null, 5));
-        testPieChartData.add(new PieChart.Data(null, 7));
-        testPieChartData.add(new PieChart.Data(null, 7));
-        testPieChart.getData().get(0).getNode().setStyle("-fx-pie-color: #FFFFFF;");
-        testPieChart.getData().get(1).getNode().setStyle("-fx-pie-color: #00FF00;");
-        testPieChart.getData().get(2).getNode().setStyle("-fx-pie-color: #FF0000;");
-        testPieChart.setRotate(43);
+        //<editor-fold desc="Gear "gauge" setup">
+        gearPieChart.setData(gearPieChartData);
+        gearPieChartData.add(new PieChart.Data(null, 30));
+        gearPieChartData.add(new PieChart.Data(null, 50));
+        gearPieChartData.add(new PieChart.Data(null, 50));
+        gearPieChart.getData().get(0).getNode().setStyle("-fx-pie-color: #FFFFFF;");
+        gearPieChart.getData().get(1).getNode().setStyle("-fx-pie-color: #00FF00;");
+        gearPieChart.getData().get(2).getNode().setStyle("-fx-pie-color: #FF0000;");
+        gearPieChart.setRotate(47);
+        //</editor-fold>
         
     }    
     

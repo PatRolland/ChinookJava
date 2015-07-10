@@ -211,7 +211,7 @@ public class SerialCommunication implements SerialPortEventListener {
         catch(Exception e)
         {
             System.out.println(valuesString);
-            //System.out.println(e);
+            System.out.println(e);
         }
                         
     }
